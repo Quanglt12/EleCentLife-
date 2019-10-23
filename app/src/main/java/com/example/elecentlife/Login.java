@@ -29,24 +29,16 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String name= username.getText()+"";
                 String pass= Password.getText()+"";
-               if( name.equals("admin")&& pass.equals("admin"))
-                {
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
-                }
-               else
-               {
-                   Toast toast = Toast.makeText(getApplicationContext(),"Incorrect Password or User name",Toast.LENGTH_SHORT);
-                   toast.show();
-               }
+
+                validate(name,pass);
             }
         });
 
     }
 
-   /* private void validate (String username, String userPassword)
+    private void validate (String username, String userPassword)
     {
-        if((username == "Admin") && (userPassword == "12345"))
+        if((username.equals("admin")) && (userPassword.equals("admin")))
         {
             Intent intent = new Intent(Login.this, MainActivity.class);
             startActivity(intent);
@@ -56,5 +48,5 @@ public class Login extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(),"Incorrect Password or User name",Toast.LENGTH_SHORT);
             toast.show();
         }
-    }*/
+    }
 }

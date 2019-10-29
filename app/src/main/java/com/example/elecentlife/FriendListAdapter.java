@@ -12,7 +12,7 @@ import java.util.List;
 public class FriendListAdapter extends BaseAdapter {
 
     private Context context;
-    private int Layout;
+    private int Layout; //layout save like an integer
     private List<friend> friendList;
 
     public FriendListAdapter(Context context, int layout, List<friend> friendList) {

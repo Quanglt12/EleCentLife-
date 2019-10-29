@@ -20,11 +20,14 @@
 
     <Button
         android:id="@+id/buttonlogin"
-        android:layout_width="wrap_content"
+        android:layout_width="103dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/passwordtext"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:text="Login" />
 
     <EditText
@@ -40,4 +43,57 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttoncreateA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonlogin"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="Create Account" />
+
+    <TextView
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:text="EleCent Life +"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textColor="#4CAF50" />
+
+    <TextView
+        android:id="@+id/offline"
+        android:textSize="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttoncreateA"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:text="offline mode"
+        android:onClick="onClick"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/forgotpass"
+        android:textSize="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offline"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:text="Forgot your password?"
+        />
 </RelativeLayout>

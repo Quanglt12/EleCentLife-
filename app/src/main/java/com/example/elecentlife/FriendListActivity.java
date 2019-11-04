@@ -86,12 +86,13 @@ public class FriendListActivity extends AppCompatActivity {
         lvfriend.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                //I will add the question asking user sure about delete this user friend later
 
                 arrayfriend.remove(i);
                 adapter.notifyDataSetChanged();
 
                 return false;
+
             }
         });
     }

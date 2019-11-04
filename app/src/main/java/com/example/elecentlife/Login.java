@@ -21,6 +21,8 @@ public class Login extends AppCompatActivity {
     private String newname,newpass;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class Login extends AppCompatActivity {
         btnlogin    = (Button)      findViewById(R.id.buttonlogin);
         btncreate   = (Button)      findViewById(R.id.buttoncreateA);
         offline     = (TextView)    findViewById(R.id.offline);
+
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,4 +112,18 @@ public class Login extends AppCompatActivity {
             toast.show();
         }
     }
+
+    public String getusername()
+    {
+        if(newname.isEmpty())
+        {
+            newname ="admin";
+            return newname;
+        }
+        else
+            return newname;
+    }
+
+
 }
+

@@ -9,7 +9,7 @@
     <ListView
         android:id="@+id/ListViewFriend"
         android:layout_width="411dp"
-        android:layout_height="553dp"
+        android:layout_height="511dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addfriendbutton" />

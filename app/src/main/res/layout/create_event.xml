@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/createNewEvent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background=" #00c6c6"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp"
+        android:text="Create new event"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/eventType"
+        android:layout_width="208dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/createNewEvent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Event type"
+        android:textSize="24sp" />
+
+
+    <ListView
+        android:id="@+id/typeName"
+        android:layout_width="204dp"
+        android:layout_height="56dp"
+        android:layout_below="@+id/eventType">
+        android:layout_marginBottom="20dp"
+    </ListView>
+
+    <ListView
+        android:id="@+id/color"
+        android:layout_width="204dp"
+        android:layout_height="56dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/eventType"
+        android:layout_toRightof="@+id/typeName">
+    </ListView>
+
+    <EditText
+        android:id="@+id/eventName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeName"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Event name"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eventName"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Event description"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/time"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Time"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="30sp" />
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/time"
+        android:layout_marginTop="20dp"
+        android:format12Hour="hh:mm:ss a" />
+
+    <Button
+        android:id="@+id/cancelBttn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:text="Cancel"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/cancelBttn"
+        android:text="save"
+        />
+
+
+
+</RelativeLayout>

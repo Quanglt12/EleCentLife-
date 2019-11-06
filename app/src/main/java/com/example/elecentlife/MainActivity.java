@@ -40,5 +40,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+        Button eventButton = (Button) findViewById(R.id.newEventButton);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), NewEventActivity.class);
+                startActivity(startIntent);
+            }
+        });
     }
 }

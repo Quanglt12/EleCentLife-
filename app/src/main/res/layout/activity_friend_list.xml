@@ -64,13 +64,13 @@
         android:id="@+id/settingsButton"
         android:layout_width="104dp"
         android:layout_height="44dp"
-        android:layout_toStartOf="@+id/newEventButton"
-        android:text="Breakfast"
-        app:layout_constraintEnd_toStartOf="@+id/newEventButton"
+        android:layout_toStartOf="@+id/button7"
+        android:text="Setting"
+        app:layout_constraintEnd_toStartOf="@+id/button7"
         app:layout_constraintTop_toBottomOf="@+id/ListViewFriend" />
 
     <Button
-        android:id="@+id/newEventButton"
+        android:id="@+id/button7"
         android:layout_width="87dp"
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"

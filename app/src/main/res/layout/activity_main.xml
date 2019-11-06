@@ -52,7 +52,7 @@
         android:layout_below="@+id/calendarView"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="98dp"
         android:background="#AD9292"
         android:text="Cal" />
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/calendarView"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="98dp"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/settingsButton"
         android:layout_toEndOf="@+id/button4"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/calendarView"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="98dp"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/newEventButton"
         android:text="Settings" />
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/calendarView"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="98dp"
         android:layout_marginEnd="0dp"
         android:text="+"
         android:textSize="24sp" />

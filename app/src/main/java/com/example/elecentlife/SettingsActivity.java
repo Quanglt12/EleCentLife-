@@ -37,5 +37,14 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        textViewLogOut = (TextView) findViewById(R.id.textViewLogOut);
+        textViewLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+            }
+        });
+
     }
 }

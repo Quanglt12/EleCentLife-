@@ -35,7 +35,7 @@ public class NewEventActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Events EventClass = new Events();
                 String[] newEvent = new String[] {"","","","","","","",""};
-                //Intent intent = new Intent(NewEventActivity.this, Events.class);
+                Intent intent = new Intent(NewEventActivity.this, Events.class);
 
                 newEvent[0] = EventType.getSelectedItem().toString();
                 newEvent[1] = EventColor.getSelectedItem().toString();
@@ -46,7 +46,8 @@ public class NewEventActivity extends AppCompatActivity {
                 newEvent[6] = EventETime.getText().toString() + " " + ETimeAmPm.getSelectedItem().toString();
                 newEvent[7] = EventRHour.getText().toString() + " " + EventRMin.getText().toString();
 
-                //can't figure out how to get this shit to save
+                //doesn't currently save for some reason
+                EventClass.addEvent(intent);
             }
         });
     }

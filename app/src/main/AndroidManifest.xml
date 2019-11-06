@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".settingsColors"></activity>
+        <activity android:name=".NewEventActivity"></activity>
+        <activity android:name=".settingsColors" />
         <activity android:name=".settingsNotif" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Login">

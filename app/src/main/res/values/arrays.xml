@@ -7,6 +7,20 @@
 
     <string-array name="EventTypes">
         <item>Work/School</item>
+        <item>Deadline</item>
+        <item>Casual Hangout</item>
+        <item>Meeting</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="Colors">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Orange</item>
+        <item>Purple</item>
+        <item>Pink</item>
     </string-array>
 
 </resources>

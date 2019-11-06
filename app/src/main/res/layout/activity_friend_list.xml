@@ -53,15 +53,15 @@
         android:id="@+id/friendbutton"
         android:layout_width="112dp"
         android:layout_height="44dp"
-        android:layout_toStartOf="@+id/button6"
+        android:layout_toStartOf="@+id/settingsButton"
         android:layout_toEndOf="@+id/button4"
         android:text="Friends"
         android:background="#AD9292"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/settingsButton"
         app:layout_constraintTop_toBottomOf="@+id/ListViewFriend" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/settingsButton"
         android:layout_width="104dp"
         android:layout_height="44dp"
         android:layout_toStartOf="@+id/button7"

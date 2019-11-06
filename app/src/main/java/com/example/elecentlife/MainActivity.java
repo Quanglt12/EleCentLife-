@@ -23,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button weeklybtn= (Button) findViewById(R.id.weeklybutton);
+        weeklybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), Weekly.class);
+                startActivity(startIntent);
+            }
+        });
+
         Button friendbtn = (Button) findViewById(R.id.friendbutton);
         friendbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        Button settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(startIntent);
+            }
+        });
     }
 }

@@ -4,6 +4,7 @@ package com.example.elecentlife;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +21,7 @@ public class FriendListActivity extends AppCompatActivity {
     ListView lvfriend;
     ArrayList<friend> arrayfriend;
     FriendListAdapter adapter;
+    Button calbtn;
     Button btnadd,btndetele;
     String userid;
     String usernickname;
@@ -31,6 +33,15 @@ public class FriendListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friend_list);
 
         decalare();
+        //set button go back to calendar
+
+        calbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(startIntent);
+            }
+        });
 
         adapter = new FriendListAdapter(FriendListActivity.this, R.layout.friend_list, arrayfriend);
         lvfriend.setAdapter(adapter);
@@ -101,6 +112,7 @@ public class FriendListActivity extends AppCompatActivity {
         lvfriend = (ListView) findViewById(R.id.ListViewFriend);
         arrayfriend = new ArrayList<>();
 
+        calbtn = (Button) findViewById(R.id.calbutton);
         btnadd = (Button) findViewById(R.id.addfriendbutton);
         btndetele = (Button) findViewById(R.id.removefriendbutton);
         arrayfriend.add(new friend("Quang", "Euro"));

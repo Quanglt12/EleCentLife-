@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewEventActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-39dp">
+
+    <EditText
+        android:id="@+id/remindMinET"
+        android:layout_width="94dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="436dp"
+        android:ems="10"
+        android:hint="Minutes"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/eventETimeAmPm"
+        android:layout_width="96dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="320dp"
+        android:entries="@array/AmPm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/eventSTimeAmPm"
+        android:layout_width="96dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="282dp"
+        android:entries="@array/AmPm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/remindTV"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="367dp"
+        android:text="How long before do you want a reminder?"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eventETimeET"
+        android:layout_width="91dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="318dp"
+        android:ems="10"
+        android:hint="HH:MM"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/eventETimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="318dp"
+        android:text="Event End Time:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventSTimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="279dp"
+        android:text="Event Start Time:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventSDateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="240dp"
+        android:text="Event Start Date:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/eventColorSP"
+        android:layout_width="199dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="119dp"
+        android:entries="@array/Colors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="158dp"
+        android:text="Event Name:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/newEventHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="4dp"
+        android:text="Create New Event"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventTypeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="79dp"
+        android:text="Event Type:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <TextView
+        android:id="@+id/eventColorTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="118dp"
+        android:text="Event Color:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eventNoteET"
+        android:layout_width="213dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="198dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Event Note"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventNoteTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="198dp"
+        android:text="Event Note:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/eventTypeSP"
+        android:layout_width="199dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="79dp"
+        android:entries="@array/EventTypes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eventNameET"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="153dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eventSDateET"
+        android:layout_width="177dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="MM/DD/YYYY"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eventSTimeET"
+        android:layout_width="91dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="280dp"
+        android:ems="10"
+        android:hint="HH:MM"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/remindHourET"
+        android:layout_width="94dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="436dp"
+        android:ems="10"
+        android:hint="Hours"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="261dp"
+        android:layout_marginTop="526dp"
+        android:text="Save Event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

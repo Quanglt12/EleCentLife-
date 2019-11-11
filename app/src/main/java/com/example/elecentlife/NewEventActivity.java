@@ -34,20 +34,20 @@ public class NewEventActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Events EventClass = new Events();
-                String[] newEvent = new String[] {"","","","","","","",""};
-                Intent intent = new Intent(NewEventActivity.this, Events.class);
+                String newEvent;
 
-                newEvent[0] = EventType.getSelectedItem().toString();
-                newEvent[1] = EventColor.getSelectedItem().toString();
-                newEvent[2] = EventName.getText().toString();
-                newEvent[3] = EventNote.getText().toString();
-                newEvent[4] = EventSDate.getText().toString();
-                newEvent[5] = EventSTime.getText().toString() + " " + STimeAmPm.getSelectedItem().toString();
-                newEvent[6] = EventETime.getText().toString() + " " + ETimeAmPm.getSelectedItem().toString();
-                newEvent[7] = EventRHour.getText().toString() + " " + EventRMin.getText().toString();
+                //events are stored as <eventtype>|<eventcolor>|<eventname>|<eventnote>|<eventsdate>|<eventstime>|<eventetime>|<eventrtime>
+                newEvent = EventType.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EventColor.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EventName.getText().toString() + "|";
+                newEvent = newEvent + EventNote.getText().toString() + "|";
+                newEvent = newEvent + EventSDate.getText().toString() + "|";
+                newEvent = newEvent + EventSTime.getText().toString() + " " + STimeAmPm.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EventETime.getText().toString() + " " + ETimeAmPm.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EventRHour.getText().toString() + " " + EventRMin.getText().toString();
 
                 //doesn't currently save for some reason
-                EventClass.addEvent(intent);
+                EventClass.addEvent(newEvent);
             }
         });
     }

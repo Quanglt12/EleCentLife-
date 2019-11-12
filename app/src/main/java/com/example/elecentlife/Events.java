@@ -1,30 +1,24 @@
 package com.example.elecentlife;
 
-import android.content.Intent;
-import android.os.Bundle;
-
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class Events {
-    private static List<String[]> EventList;
+    private static List<String> EventList = new ArrayList<>();
 
-    public List<String[]> getEventList() {
+    public List<String> getEventList() {
         return EventList;
     }
 
-    public void addEvent(Intent newEvent) {
-
-        String[] tempArr = new String[] {"","","","","","","",""};
-        tempArr = newEvent.getStringArrayExtra("string-array");
-
-        EventList.add(tempArr);
+    public void addEvent(String newEvent) {
+        EventList.add(newEvent);
     }
 
-    public void removeEvent(String[] event) {
+    public void removeEvent(String event) {
         for (int index = 0; index < EventList.size(); index++ ) {
-            String[] tempArr = EventList.get(index);
-            if (tempArr == event) {
+            String tempStr = EventList.get(index);
+
+            if (tempStr == event) {
                 EventList.remove(index);
                 break;
             }

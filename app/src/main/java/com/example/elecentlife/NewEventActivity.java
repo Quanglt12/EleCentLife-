@@ -17,17 +17,17 @@ public class NewEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_event);
 
         //create fields as to not cause lag when clicking save event
-        final Spinner EventType = (Spinner) findViewById(R.id.eventTypeSP);
-        final Spinner EventColor = (Spinner) findViewById(R.id.eventColorSP);
-        final Spinner STimeAmPm = (Spinner) findViewById(R.id.eventSTimeAmPm);
-        final Spinner ETimeAmPm = (Spinner) findViewById(R.id.eventETimeAmPm);
-        final EditText EventName = (EditText) findViewById(R.id.eventNameET);
-        final EditText EventNote = (EditText) findViewById(R.id.eventNoteET);
-        final EditText EventSDate = (EditText) findViewById(R.id.eventSDateET);
-        final EditText EventSTime = (EditText) findViewById(R.id.eventSTimeET);
-        final EditText EventETime = (EditText) findViewById(R.id.eventETimeET);
-        final EditText EventRHour = (EditText) findViewById(R.id.remindHourET);
-        final EditText EventRMin = (EditText) findViewById(R.id.remindMinET);
+        final Spinner EVENTTYPE = (Spinner) findViewById(R.id.eventTypeSP);
+        final Spinner EVENTCOLOR = (Spinner) findViewById(R.id.eventColorSP);
+        final Spinner STIMEAMPM = (Spinner) findViewById(R.id.eventSTimeAmPm);
+        final Spinner ETIMEAMPM = (Spinner) findViewById(R.id.eventETimeAmPm);
+        final EditText EVENTNAME = (EditText) findViewById(R.id.eventNameET);
+        final EditText EVENTNOTE = (EditText) findViewById(R.id.eventNoteET);
+        final EditText EVENTSDATE = (EditText) findViewById(R.id.eventSDateET);
+        final EditText EVENTSTIME = (EditText) findViewById(R.id.eventSTimeET);
+        final EditText EVENTETIME = (EditText) findViewById(R.id.eventETimeET);
+        final EditText EVENTRHOUR = (EditText) findViewById(R.id.remindHourET);
+        final EditText EVENTRMIN = (EditText) findViewById(R.id.remindMinET);
 
         Button saveChanges = (Button) findViewById(R.id.saveButton);
         saveChanges.setOnClickListener(new View.OnClickListener() {
@@ -37,16 +37,16 @@ public class NewEventActivity extends AppCompatActivity {
                 String newEvent;
 
                 //events are stored as <eventtype>|<eventcolor>|<eventname>|<eventnote>|<eventsdate>|<eventstime>|<eventetime>|<eventrtime>
-                newEvent = EventType.getSelectedItem().toString() + "|";
-                newEvent = newEvent + EventColor.getSelectedItem().toString() + "|";
-                newEvent = newEvent + EventName.getText().toString() + "|";
-                newEvent = newEvent + EventNote.getText().toString() + "|";
-                newEvent = newEvent + EventSDate.getText().toString() + "|";
-                newEvent = newEvent + EventSTime.getText().toString() + " " + STimeAmPm.getSelectedItem().toString() + "|";
-                newEvent = newEvent + EventETime.getText().toString() + " " + ETimeAmPm.getSelectedItem().toString() + "|";
-                newEvent = newEvent + EventRHour.getText().toString() + " " + EventRMin.getText().toString();
+                newEvent = EVENTTYPE.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTCOLOR.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTNAME.getText().toString() + "|";
+                newEvent = newEvent + EVENTNOTE.getText().toString() + "|";
+                newEvent = newEvent + EVENTSDATE.getText().toString() + "|";
+                newEvent = newEvent + EVENTSTIME.getText().toString() + " " + STIMEAMPM.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTETIME.getText().toString() + " " + ETIMEAMPM.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTRHOUR.getText().toString() + " " + EVENTRMIN.getText().toString();
 
-                //doesn't currently save for some reason
+                //call addEvent function to save new event
                 EventClass.addEvent(newEvent);
             }
         });

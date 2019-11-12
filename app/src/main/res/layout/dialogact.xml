@@ -13,13 +13,13 @@
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/edtNewAcount"
-        android:hint="Enter User Name"
+        android:hint="Enter your Email"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/edtNewPass"
-        android:hint="Enter User Password"
+        android:hint="Enter User Password (more than 6 words)"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

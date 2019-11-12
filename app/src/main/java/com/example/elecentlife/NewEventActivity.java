@@ -17,37 +17,37 @@ public class NewEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_event);
 
         //create fields as to not cause lag when clicking save event
-        final Spinner EventType = (Spinner) findViewById(R.id.eventTypeSP);
-        final Spinner EventColor = (Spinner) findViewById(R.id.eventColorSP);
-        final Spinner STimeAmPm = (Spinner) findViewById(R.id.eventSTimeAmPm);
-        final Spinner ETimeAmPm = (Spinner) findViewById(R.id.eventETimeAmPm);
-        final EditText EventName = (EditText) findViewById(R.id.eventNameET);
-        final EditText EventNote = (EditText) findViewById(R.id.eventNoteET);
-        final EditText EventSDate = (EditText) findViewById(R.id.eventSDateET);
-        final EditText EventSTime = (EditText) findViewById(R.id.eventSTimeET);
-        final EditText EventETime = (EditText) findViewById(R.id.eventETimeET);
-        final EditText EventRHour = (EditText) findViewById(R.id.remindHourET);
-        final EditText EventRMin = (EditText) findViewById(R.id.remindMinET);
+        final Spinner EVENTTYPE = (Spinner) findViewById(R.id.eventTypeSP);
+        final Spinner EVENTCOLOR = (Spinner) findViewById(R.id.eventColorSP);
+        final Spinner STIMEAMPM = (Spinner) findViewById(R.id.eventSTimeAmPm);
+        final Spinner ETIMEAMPM = (Spinner) findViewById(R.id.eventETimeAmPm);
+        final EditText EVENTNAME = (EditText) findViewById(R.id.eventNameET);
+        final EditText EVENTNOTE = (EditText) findViewById(R.id.eventNoteET);
+        final EditText EVENTSDATE = (EditText) findViewById(R.id.eventSDateET);
+        final EditText EVENTSTIME = (EditText) findViewById(R.id.eventSTimeET);
+        final EditText EVENTETIME = (EditText) findViewById(R.id.eventETimeET);
+        final EditText EVENTRHOUR = (EditText) findViewById(R.id.remindHourET);
+        final EditText EVENTRMIN = (EditText) findViewById(R.id.remindMinET);
 
         Button saveChanges = (Button) findViewById(R.id.saveButton);
         saveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Events EventClass = new Events();
-                String[] newEvent = new String[] {"","","","","","","",""};
-                Intent intent = new Intent(NewEventActivity.this, Events.class);
+                String newEvent;
 
-                newEvent[0] = EventType.getSelectedItem().toString();
-                newEvent[1] = EventColor.getSelectedItem().toString();
-                newEvent[2] = EventName.getText().toString();
-                newEvent[3] = EventNote.getText().toString();
-                newEvent[4] = EventSDate.getText().toString();
-                newEvent[5] = EventSTime.getText().toString() + " " + STimeAmPm.getSelectedItem().toString();
-                newEvent[6] = EventETime.getText().toString() + " " + ETimeAmPm.getSelectedItem().toString();
-                newEvent[7] = EventRHour.getText().toString() + " " + EventRMin.getText().toString();
+                //events are stored as <eventtype>|<eventcolor>|<eventname>|<eventnote>|<eventsdate>|<eventstime>|<eventetime>|<eventrtime>
+                newEvent = EVENTTYPE.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTCOLOR.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTNAME.getText().toString() + "|";
+                newEvent = newEvent + EVENTNOTE.getText().toString() + "|";
+                newEvent = newEvent + EVENTSDATE.getText().toString() + "|";
+                newEvent = newEvent + EVENTSTIME.getText().toString() + " " + STIMEAMPM.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTETIME.getText().toString() + " " + ETIMEAMPM.getSelectedItem().toString() + "|";
+                newEvent = newEvent + EVENTRHOUR.getText().toString() + " " + EVENTRMIN.getText().toString();
 
-                //doesn't currently save for some reason
-                EventClass.addEvent(intent);
+                //call addEvent function to save new event
+                EventClass.addEvent(newEvent);
             }
         });
     }

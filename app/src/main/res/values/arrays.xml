@@ -14,6 +14,7 @@
     </string-array>
 
     <string-array name="Colors">
+        <item>Default</item>
         <item>Red</item>
         <item>Blue</item>
         <item>Green</item>

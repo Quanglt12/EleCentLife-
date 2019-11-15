@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 public class GlobalVar {
     private static ArrayList globalSettings; //index correlations: 0 - schedule reminder, 1 - quote notification
-                                             //2 - breakfast recommendation, 3 - alarm time, 4 - colors
-    private static String[] color = {"#FF0000", "#FFFF00", "#008000", "#0000FF", "#800080"};
+                                             //2 - breakfast recommendation, 3 - alarm time, 4 to 10 - colors
     private final String[] eventType = {"Work/School", "Deadline", "Casual Hangout", "Meeting", "Other"};
 
     public GlobalVar(Context context) {
@@ -30,7 +29,7 @@ public class GlobalVar {
                 globalSettings.set(3, "07:30 am");
 
                 //colors are a little different
-                String[] colors = {"#FF0000", "#FFFF00", "#008000", "#0000FF", "#800080"};
+                String[] colors = {"", "", "", "", "", "", ""};
                 this.setColor(colors);
             }
             else {
@@ -66,46 +65,49 @@ public class GlobalVar {
     }
 
     public void setSchedTime(String schedRemind) {
-        GlobalVar.schedRemind = schedRemind;
+        globalSettings.set(0, schedRemind);
     }
 
     public String getSchedTime() {
-        return schedRemind;
+        return globalSettings.get(0).toString();
     }
 
     public static void setQuoteTime(String quoteNotif) {
-        GlobalVar.quoteNotif = quoteNotif;
+        globalSettings.set(1, quoteNotif);
     }
 
     public String getQuoteTime() {
-        return quoteNotif;
+        return globalSettings.get(1).toString();
     }
 
     public static void setBreakfastTime(String breakfastRecom) {
-        GlobalVar.breakfastRecom = breakfastRecom;
+        globalSettings.set(2, breakfastRecom);
     }
 
     public static String getBreakfastTime() {
-        return breakfastRecom;
+        return globalSettings.get(2).toString();
     }
 
     public static void setAlarmTime(String alarmTime) {
-        GlobalVar.alarmTime = alarmTime;
+        globalSettings.set(3, alarmTime);
     }
 
     public static String getAlarmTime() {
-        return alarmTime;
+        return globalSettings.get(0).toString();
     }
 
     public void setColor(String[] newColors) {
-        color = newColors;
+        globalSettings.set(4, newColors);
     }
 
-    public String getColor(int index) {
-        return color[index];
+    public String[] getColor() {
+        String[] colors = {"","","","","","",""};
+        for (int index = 4; index < 11; index++)
+            colors[index-4] = globalSettings.get(index).toString();
+        return colors;
     }
 
-    public String getEventType(int index) {
-        return eventType[index];
+    public String[] getEventType() {
+        return eventType;
     }
 }

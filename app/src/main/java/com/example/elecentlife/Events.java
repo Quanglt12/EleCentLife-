@@ -15,6 +15,7 @@ import java.util.List;
 public class Events {
     private static List<String> EventList = new ArrayList<>();
 
+    //constructor used to load events from the file saved on the device
     public Events(Context context) {
         try {
             File file = new File(context.getExternalFilesDir(null), "eventsFile");

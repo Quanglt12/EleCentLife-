@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class NewEventActivity extends AppCompatActivity {
 
@@ -52,16 +53,23 @@ public class NewEventActivity extends AppCompatActivity {
 
                     //call addEvent function to save new event
                     EventClass.addEvent(newEvent);
-                }
+
+                    Intent intent = new Intent(NewEventActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    }
+
                 else {
                     if (!inputValidation.isValidDate(EVENTSDATE.getText().toString())) {
-
+                        Toast toast = Toast.makeText(getApplicationContext(),"Event date incorrect (MM/DD/YYYY)",Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                     if (!inputValidation.isValidTime(EVENTSTIME.getText().toString())) {
-
+                        Toast toast = Toast.makeText(getApplicationContext(),"Event start time incorrect (HH:MM)",Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                     if (!inputValidation.isValidTime(EVENTETIME.getText().toString())) {
-
+                        Toast toast = Toast.makeText(getApplicationContext(),"Event end time incorrect (HH:MM)",Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                 }
             }

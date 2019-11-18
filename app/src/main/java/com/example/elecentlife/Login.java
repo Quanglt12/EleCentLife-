@@ -1,24 +1,34 @@
 package com.example.elecentlife;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Login extends AppCompatActivity {
 
-    private EditText username;
+    private EditText useremail;
     private EditText Password;
     private Button btnlogin;
     private Button btncreate;
     private TextView offline;
-    private String newname,newpass;
+    private String newemail,newpass;
+    private FirebaseAuth mAuth; //crate firebase database
+
 
 
 
@@ -28,22 +38,24 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username    = (EditText)    findViewById(R.id.Useridtext);
+        useremail    = (EditText)    findViewById(R.id.Useridtext);
         Password    = (EditText)    findViewById(R.id.passwordtext);
         btnlogin    = (Button)      findViewById(R.id.buttonlogin);
         btncreate   = (Button)      findViewById(R.id.buttoncreateA);
         offline     = (TextView)    findViewById(R.id.offline);
+        mAuth = FirebaseAuth.getInstance(); //get instance for file resource
 
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name= username.getText()+"";
+                String email= useremail.getText()+"";
                 String pass= Password.getText()+"";
 
-                validate(name,pass);
+                validate(email,pass);
             }
         });
+
         //set Create account dialog
         btncreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,22 +72,58 @@ public class Login extends AppCompatActivity {
                 Button cancel = (Button) dialog.findViewById(R.id.cancel);
                 Button create = (Button) dialog.findViewById(R.id.create);
 
+                //set click able for create button in dialog
                 create.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        newname = edtname.getText().toString().trim(); //trim mean get space
+
+                        newemail = edtname.getText().toString().trim(); //trim mean get space
                         newpass = edtpass.getText().toString().trim();
 
-                        dialog.cancel();
+                        if(newemail.isEmpty())
+                        {
+                            Toast toast = Toast.makeText(getApplicationContext(),"please enter user name",Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                        else if(newpass.isEmpty())
+                        {
+                            Toast toast = Toast.makeText(getApplicationContext(),"please enter password",Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
+                        else if(!newpass.isEmpty() && !newemail.isEmpty()){
+                            mAuth.createUserWithEmailAndPassword(newemail,newpass).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success
+                                        Toast toast = Toast.makeText(getApplicationContext(),"sign up successful",Toast.LENGTH_SHORT);
+                                        toast.show();
+
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Toast toast = Toast.makeText(getApplicationContext(),"sign up fail",Toast.LENGTH_SHORT);
+                                        toast.show();
+                                    }
+
+                                }
+                            });
+
+                            dialog.cancel();
+                        }
+
+
                     }
                 });
 
+                //set cancel button in dialog
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.cancel();
                     }
                 });
+                //showing the dialog when click on create button in the main login window
                 dialog.show();
             }
         });
@@ -94,35 +142,30 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void validate (String username, String userPassword)
+    private void validate (String useremail, String userPassword)
     {
-        if((username.equals("admin")) && (userPassword.equals("admin")))
-        {
-            Intent intent = new Intent(Login.this, MainActivity.class);
-            startActivity(intent);
-        }
-        else if((username.equals(newname)) && (userPassword.equals(newpass)))
-        {
-            Intent intent = new Intent(Login.this, MainActivity.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast toast = Toast.makeText(getApplicationContext(),"Incorrect Password or User name",Toast.LENGTH_SHORT);
-            toast.show();
-        }
+        mAuth.signInWithEmailAndPassword(useremail, userPassword)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success
+                            Toast toast = Toast.makeText(getApplicationContext(),"Login-in successful",Toast.LENGTH_SHORT);
+                            toast.show();
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            startActivity(intent);
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast toast = Toast.makeText(getApplicationContext(),"Login-in fail",Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
+                        // ...
+                    }
+                });
     }
 
-    public String getusername()
-    {
-        if(newname.isEmpty())
-        {
-            newname ="admin";
-            return newname;
-        }
-        else
-            return newname;
-    }
 
 
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "590388549500",
+    "firebase_url": "https://elecent-a61f6.firebaseio.com",
+    "project_id": "elecent-a61f6",
+    "storage_bucket": "elecent-a61f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590388549500:android:d48be9804108f1e91076f9",
+        "android_client_info": {
+          "package_name": "com.example.elecentlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590388549500-0atnqttf6pppv3f9up3qicrb0vinggij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTkq02EeIscV7QiKKJ9c7f2vWxgWZ71Lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590388549500-0atnqttf6pppv3f9up3qicrb0vinggij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

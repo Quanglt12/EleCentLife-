@@ -1,6 +1,7 @@
 package com.example.elecentlife;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -14,7 +15,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class FriendListActivity extends AppCompatActivity {
 
@@ -23,8 +30,9 @@ public class FriendListActivity extends AppCompatActivity {
     FriendListAdapter adapter;
     Button calbtn;
     Button btnadd,btndetele;
-    String userid;
+    String userid; //user email
     String usernickname;
+    FirebaseAuth auth;
     int i;
 
     @Override
@@ -39,6 +47,26 @@ public class FriendListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(startIntent);
+            }
+        });
+
+        //set button setting go to setting activity
+        Button settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(startIntent);
+            }
+        });
+
+        //set button new event go to event activity
+        Button eventButton = (Button) findViewById(R.id.newEventButton);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), NewEventActivity.class);
                 startActivity(startIntent);
             }
         });
@@ -68,10 +96,11 @@ public class FriendListActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         userid = edtfriendname.getText().toString().trim();
                         usernickname = edtNickName.getText().toString().trim();
-                        arrayfriend.add(new friend(usernickname, userid));
-                        adapter.notifyDataSetChanged(); //set new data after changed
+
+                        //pass user email to validate user method
+                        validateuser(userid, usernickname);
                         dialog.cancel();
-                       // validateuser(userid,usernickname);
+
                     }
                 });
 
@@ -112,31 +141,40 @@ public class FriendListActivity extends AppCompatActivity {
         lvfriend = (ListView) findViewById(R.id.ListViewFriend);
         arrayfriend = new ArrayList<>();
 
+        auth = FirebaseAuth.getInstance(); //get the Authentication instance from the database
         calbtn = (Button) findViewById(R.id.calbutton);
         btnadd = (Button) findViewById(R.id.addfriendbutton);
         btndetele = (Button) findViewById(R.id.removefriendbutton);
-        arrayfriend.add(new friend("Quang", "Euro"));
-        arrayfriend.add(new friend("Nam", "Dang"));
-        arrayfriend.add(new friend("Hung", "sinh"));
-        arrayfriend.add(new friend("Devan", "Griffin"));
+
+
     }
 
- /*private void validateuser(String newuserid, String nickName)
+private void validateuser(final String newuserEmail, final String nickName)
     {
-        //create class login as a static of Login
-        Login login = new Login();
-        String value = login.getusername();
+       auth.fetchSignInMethodsForEmail(newuserEmail)
+               .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                   @Override
+                   public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                       if (task.isSuccessful())
+                       {
+                           SignInMethodQueryResult result = task.getResult();
+                           List<String> signInMethods = result.getSignInMethods();
+                           if(!signInMethods.isEmpty()) //if the signInmethod is empty, it means that the Email doesn't exist in the data
+                           {
+                               arrayfriend.add(new friend(nickName, newuserEmail));
+                               adapter.notifyDataSetChanged(); //set new data after changed
+                           }
+                           else
+                           {
+                               Toast toast = Toast.makeText(getApplicationContext(),"Incorrect User email",Toast.LENGTH_SHORT);
+                               toast.show();
+                           }
+                       }
 
-        if(newuserid.equals(value))
-        {
-            arrayfriend.add(new friend(nickName, newuserid));
-            adapter.notifyDataSetChanged(); //set new data after changed
-        }
-        else
-        {
-            Toast toast = Toast.makeText(getApplicationContext(),"Incorrect User id name",Toast.LENGTH_SHORT);
-            toast.show();
-        }
+                   }
+               });
 
-    }*/
+
+
+    };
 }

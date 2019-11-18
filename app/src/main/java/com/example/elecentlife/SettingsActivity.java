@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SettingsActivity extends AppCompatActivity {
 
-    GlobalVar changeSettings = new GlobalVar();
+    GlobalVar changeSettings = new GlobalVar(this);
     TextView textViewNotif, textViewColors, textViewLogOut;
     String color;
     int time;
@@ -41,6 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
         textViewLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut(); //sign-out of the account
                 Intent startIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(startIntent);
             }

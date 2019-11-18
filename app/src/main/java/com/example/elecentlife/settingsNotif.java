@@ -30,7 +30,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildSchedBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        GlobalVar globalVariables = new GlobalVar(this);
         String schedTime = globalVariables.getSchedTime();
         EditText schedTimeTB1 = (EditText) findViewById(R.id.schedTimeTB1);
         EditText schedTimeTB2 = (EditText) findViewById(R.id.schedTimeTB2);
@@ -50,7 +50,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildMotivBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        GlobalVar globalVariables = new GlobalVar(this);
         String motivTime = globalVariables.getQuoteTime();
         EditText motivTimeTB1 = (EditText) findViewById(R.id.motivTimeTB1);
         EditText motivTimeTB2 = (EditText) findViewById(R.id.motivTimeTB2);
@@ -70,7 +70,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildBfastBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        GlobalVar globalVariables = new GlobalVar(this);
         String bfastTime = globalVariables.getBreakfastTime();
         EditText bfastTimeTB1 = (EditText) findViewById(R.id.bfastTimeTB1);
         EditText bfastTimeTB2 = (EditText) findViewById(R.id.bfastTimeTB2);
@@ -90,7 +90,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildAlarmBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        GlobalVar globalVariables = new GlobalVar(this);
         String alarmTime = globalVariables.getAlarmTime();
         EditText alarmTimeTB1 = (EditText) findViewById(R.id.alarmTimeTB1);
         EditText alarmTimeTB2 = (EditText) findViewById(R.id.alarmTimeTB2);
@@ -110,7 +110,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void SaveNewSettings() {
-        GlobalVar globalVariables = new GlobalVar();
+        GlobalVar globalVariables = new GlobalVar(this);
 
         EditText TB1 = (EditText) findViewById(R.id.schedTimeTB1);
         EditText TB2 = (EditText) findViewById(R.id.schedTimeTB2);

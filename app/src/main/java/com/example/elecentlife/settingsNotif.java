@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class settingsNotif extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +29,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildSchedBoxes() {
-        GlobalVar globalVariables = new GlobalVar(this);
+        GlobalVar globalVariables = new GlobalVar(getApplicationContext());
         String schedTime = globalVariables.getSchedTime();
         EditText schedTimeTB1 = (EditText) findViewById(R.id.schedTimeTB1);
         EditText schedTimeTB2 = (EditText) findViewById(R.id.schedTimeTB2);
@@ -50,7 +49,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildMotivBoxes() {
-        GlobalVar globalVariables = new GlobalVar(this);
+        GlobalVar globalVariables = new GlobalVar(getApplicationContext());
         String motivTime = globalVariables.getQuoteTime();
         EditText motivTimeTB1 = (EditText) findViewById(R.id.motivTimeTB1);
         EditText motivTimeTB2 = (EditText) findViewById(R.id.motivTimeTB2);
@@ -70,7 +69,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildBfastBoxes() {
-        GlobalVar globalVariables = new GlobalVar(this);
+        GlobalVar globalVariables = new GlobalVar(getApplicationContext());
         String bfastTime = globalVariables.getBreakfastTime();
         EditText bfastTimeTB1 = (EditText) findViewById(R.id.bfastTimeTB1);
         EditText bfastTimeTB2 = (EditText) findViewById(R.id.bfastTimeTB2);
@@ -90,7 +89,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void BuildAlarmBoxes() {
-        GlobalVar globalVariables = new GlobalVar(this);
+        GlobalVar globalVariables = new GlobalVar(getApplicationContext());
         String alarmTime = globalVariables.getAlarmTime();
         EditText alarmTimeTB1 = (EditText) findViewById(R.id.alarmTimeTB1);
         EditText alarmTimeTB2 = (EditText) findViewById(R.id.alarmTimeTB2);
@@ -110,7 +109,7 @@ public class settingsNotif extends AppCompatActivity {
     }
 
     private void SaveNewSettings() {
-        GlobalVar globalVariables = new GlobalVar(this);
+        GlobalVar globalVariables = new GlobalVar(getApplicationContext());
 
         EditText TB1 = (EditText) findViewById(R.id.schedTimeTB1);
         EditText TB2 = (EditText) findViewById(R.id.schedTimeTB2);

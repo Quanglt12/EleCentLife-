@@ -18,7 +18,7 @@ public class Events {
     //constructor used to load events from the file saved on the device
     public Events(Context context) {
         try {
-            File file = new File(context.getExternalFilesDir(null), "eventsFile");
+            File file = new File(context.getExternalFilesDir("events_file"), "eventsFile");
 
             //create the file if it doesn't exist
             if (!file.exists())

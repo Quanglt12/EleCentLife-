@@ -2,23 +2,32 @@ package com.example.elecentlife;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class settingsColors extends AppCompatActivity {
-    GlobalVar GLOBALVARIABLES = new GlobalVar(getApplicationContext());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_colors);
 
         BuildBoxes();
+
+        Button saveChanges = (Button) findViewById(R.id.saveButton);
+        saveChanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveColors();
+            }
+        });
     }
 
     private void BuildBoxes() {
-        String color = new String();
-
-
+        GlobalVar globalVariables = new GlobalVar();
         //build spinners one by one
         Spinner WSColor = (Spinner) findViewById(R.id.WSColor);
         Spinner DLColor = (Spinner) findViewById(R.id.DLColor);
@@ -27,14 +36,15 @@ public class settingsColors extends AppCompatActivity {
         Spinner OTColor = (Spinner) findViewById(R.id.OTColor);
 
         //set spinner values
-        WSColor.setSelection(getColorIndex(GLOBALVARIABLES.getColor(0)));
-        DLColor.setSelection(getColorIndex(GLOBALVARIABLES.getColor(1)));
-        CHColor.setSelection(getColorIndex(GLOBALVARIABLES.getColor(2)));
-        MTColor.setSelection(getColorIndex(GLOBALVARIABLES.getColor(3)));
-        OTColor.setSelection(getColorIndex(GLOBALVARIABLES.getColor(4)));
+        WSColor.setSelection(getColorIndex(globalVariables.getColor(0)));
+        DLColor.setSelection(getColorIndex(globalVariables.getColor(1)));
+        CHColor.setSelection(getColorIndex(globalVariables.getColor(2)));
+        MTColor.setSelection(getColorIndex(globalVariables.getColor(3)));
+        OTColor.setSelection(getColorIndex(globalVariables.getColor(4)));
     }
 
     private void saveColors() {
+        GlobalVar globalVariables = new GlobalVar();
         Spinner WSColor = (Spinner) findViewById(R.id.WSColor);
         Spinner DLColor = (Spinner) findViewById(R.id.DLColor);
         Spinner CHColor = (Spinner) findViewById(R.id.CHColor);
@@ -48,24 +58,25 @@ public class settingsColors extends AppCompatActivity {
         colorArr[3] = MTColor.getSelectedItem().toString();
         colorArr[4] = OTColor.getSelectedItem().toString();
 
-        GLOBALVARIABLES.setColor((colorArr));
+        globalVariables.setColor((colorArr));
+        globalVariables.saveGlobalVars();
     }
 
     private int getColorIndex(String color) {
         if (color.equalsIgnoreCase("Red"))
-            return 1;
+            return 0;
         else if (color.equalsIgnoreCase("Orange"))
-            return 2;
+            return 1;
         else if (color.equalsIgnoreCase("Yellow"))
-            return 3;
+            return 2;
         else if (color.equalsIgnoreCase("Green"))
-            return 4;
+            return 3;
         else if (color.equalsIgnoreCase("Blue"))
-            return 5;
+            return 4;
         else if (color.equalsIgnoreCase("Purple"))
-            return 6;
+            return 5;
         else if (color.equalsIgnoreCase("Pink"))
-            return 7;
-        else return 0;
+            return 6;
+        else return -1;
     }
 }

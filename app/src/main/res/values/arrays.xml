@@ -26,10 +26,10 @@
 
     <string-array name="SetColors">
         <item>Red</item>
-        <item>Blue</item>
-        <item>Green</item>
-        <item>Yellow</item>
         <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Blue</item>
         <item>Purple</item>
         <item>Pink</item>
     </string-array>

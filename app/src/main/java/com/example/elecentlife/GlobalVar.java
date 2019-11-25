@@ -1,7 +1,12 @@
 package com.example.elecentlife;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+
+import androidx.core.app.ActivityCompat;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,21 +14,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class GlobalVar {
     private static String[] globalSettings = new String[] {"","","","","","","","",""}; //index correlations: 0 - schedule reminder, 1 - quote notification
                                              //2 - breakfast recommendation, 3 - alarm time, 4 to 8 - colors
     private final String[] eventType = {"Work/School", "Deadline", "Casual Hangout", "Meeting", "Other"};
 
-    public GlobalVar(Context context) {
+    public GlobalVar() {
         try {
-            File file = new File(context.getExternalFilesDir("global_settings"), "globalsFile");
-
+            File path = Environment.getExternalStorageDirectory();
+            File file = new File(path, "globalsFile");
+            File globalsFile = new File(file, "globalsFile.txt");
+            //globalsFile.delete();
             //create the file if it doesn't exist
-            if (!file.exists()) {
-                file.createNewFile();
+            if (!globalsFile.exists()) {
+                file.mkdirs();
+                globalsFile.createNewFile();
                 globalSettings[0] = "08:00 am";
                 globalSettings[1] = "08:05 am";
                 globalSettings[2] = "08:10 am";
@@ -37,7 +43,6 @@ public class GlobalVar {
                 this.saveGlobalVars();
             }
             else {
-                File globalsFile = new File(file, "globalsFile");
                 FileInputStream fis = new FileInputStream(globalsFile);
                 ObjectInputStream oin = new ObjectInputStream(fis);
 
@@ -53,16 +58,16 @@ public class GlobalVar {
         }
     }
 
-    public void delete(Context context) {
-        File file = new File(context.getExternalFilesDir("global_settings"), "globalsFile");
+    public void delete() {
+        File file = new File(Environment.getExternalStorageDirectory(), "globalsFile");
         file.delete();
     }
 
     public void saveGlobalVars() {
         try {
-            File file = Environment.getExternalStorageDirectory();
-            File eventsFile = new File(file, "eventsFile");
-            FileOutputStream fos = new FileOutputStream(eventsFile);
+            File file = new File(Environment.getExternalStorageDirectory(), "globalsFile");
+            File globalsFile = new File (file, "globalsFile.txt");
+            FileOutputStream fos = new FileOutputStream(globalsFile);
             ObjectOutputStream out = new ObjectOutputStream(fos);
 
             out.writeObject(globalSettings);

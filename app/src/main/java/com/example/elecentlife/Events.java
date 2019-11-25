@@ -45,8 +45,8 @@ public class Events {
 
     private void saveEvents () {
         try {
-            File file = Environment.getExternalStorageDirectory();
-            File eventsFile = new File(file, "eventsFile");
+            File file = new File(Environment.getExternalStorageDirectory(), "eventsFile");
+            File eventsFile = new File(file, "eventsFile.txt");
             FileOutputStream fos = new FileOutputStream(eventsFile);
             ObjectOutputStream out = new ObjectOutputStream(fos);
             out.writeObject(EventList);

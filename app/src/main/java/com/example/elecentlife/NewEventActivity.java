@@ -54,6 +54,9 @@ public class NewEventActivity extends AppCompatActivity {
                     //call addEvent function to save new event
                     EventClass.addEvent(newEvent);
 
+                    Toast toast = Toast.makeText(getApplicationContext(),"New event saved.",Toast.LENGTH_SHORT);
+                    toast.show();
+
                     Intent intent = new Intent(NewEventActivity.this, MainActivity.class);
                     startActivity(intent);
                     }

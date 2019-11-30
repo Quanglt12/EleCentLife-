@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class settingsNotif extends AppCompatActivity {
     @Override
@@ -24,6 +25,8 @@ public class settingsNotif extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SaveNewSettings();
+                Toast toast = Toast.makeText(getApplicationContext(),"Notification times saved.",Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }

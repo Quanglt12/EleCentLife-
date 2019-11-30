@@ -22,6 +22,8 @@ public class settingsColors extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveColors();
+                Toast toast = Toast.makeText(getApplicationContext(),"Color settings saved.",Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }

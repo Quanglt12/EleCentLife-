@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
-    TextView textViewNotif, textViewColors, textViewLogOut;
+    private TextView textViewNotif, textViewColors, textViewLogOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

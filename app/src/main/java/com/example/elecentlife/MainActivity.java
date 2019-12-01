@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         weeklybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startIntent = new Intent(getApplicationContext(), Weekly.class);
+                Intent startIntent = new Intent(getApplicationContext(), WeeklyActivity.class);
                 startActivity(startIntent);
             }
         });

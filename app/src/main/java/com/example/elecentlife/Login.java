@@ -29,10 +29,6 @@ public class Login extends AppCompatActivity {
     private String newemail,newpass;
     private FirebaseAuth mAuth; //crate firebase database
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -25,15 +25,15 @@ import java.util.List;
 
 public class FriendListActivity extends AppCompatActivity {
 
-    ListView lvfriend;
-    ArrayList<friend> arrayfriend;
-    FriendListAdapter adapter;
-    Button calbtn;
-    Button btnadd,btndetele;
-    String userid; //user email
-    String usernickname;
-    FirebaseAuth auth;
-    int i;
+    private ListView lvfriend;
+    private ArrayList<friend> arrayfriend;
+    private FriendListAdapter adapter;
+    private Button calbtn;
+    private Button btnadd,btndelete;
+    private String userid; //user email
+    private String usernickname;
+    private FirebaseAuth auth;
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +115,7 @@ public class FriendListActivity extends AppCompatActivity {
             }
         });
 
-        btndetele.setOnClickListener(new View.OnClickListener() {
+        btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast toast = Toast.makeText(getApplicationContext(),"long click on the user name you want to remove",Toast.LENGTH_LONG);
@@ -144,12 +144,12 @@ public class FriendListActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance(); //get the Authentication instance from the database
         calbtn = (Button) findViewById(R.id.calbutton);
         btnadd = (Button) findViewById(R.id.addfriendbutton);
-        btndetele = (Button) findViewById(R.id.removefriendbutton);
+        btndelete = (Button) findViewById(R.id.removefriendbutton);
 
 
     }
 
-private void validateuser(final String newuserEmail, final String nickName)
+    private void validateuser(final String newuserEmail, final String nickName)
     {
        auth.fetchSignInMethodsForEmail(newuserEmail)
                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {

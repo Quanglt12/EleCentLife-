@@ -58,11 +58,6 @@ public class GlobalVar {
         }
     }
 
-    public void delete() {
-        File file = new File(Environment.getExternalStorageDirectory(), "globalsFile");
-        file.delete();
-    }
-
     public void saveGlobalVars() {
         try {
             File file = new File(Environment.getExternalStorageDirectory(), "globalsFile");

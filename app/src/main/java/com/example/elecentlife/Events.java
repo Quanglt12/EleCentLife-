@@ -57,8 +57,9 @@ public class Events {
         }
     }
 
-    public List<String> getEventList() {
-        return EventList;
+    //run in a loop to get all events
+    public String getEventList(int index) {
+        return EventList.get(index);
     }
 
     public void addEvent(String newEvent) {

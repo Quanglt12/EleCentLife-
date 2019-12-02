@@ -22,7 +22,7 @@ public class Events {
             File file = new File(path, "eventsFile");
             File eventsFile = new File(file, "eventsFile.txt");
             //create the file if it doesn't exist
-            if (!file.exists()) {
+            if (!eventsFile.exists()) {
                 file.mkdirs();
                 eventsFile.createNewFile();
             }
@@ -73,6 +73,7 @@ public class Events {
 
             if (tempStr == event) {
                 EventList.remove(index);
+                this.saveEvents();
                 break;
             }
         }

@@ -5,8 +5,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,13 +22,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FriendListActivity extends AppCompatActivity {
 
+    private ArrayList<friend> arrayfriend = new ArrayList<>();
     private ListView lvfriend;
-    private ArrayList<friend> arrayfriend;
     private FriendListAdapter adapter;
     private Button calbtn;
     private Button btnadd,btndelete;
@@ -35,13 +43,70 @@ public class FriendListActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private int i;
 
+
+    //conStrutor
+    public void loadFriendlist() {
+        try {
+            File path = Environment.getExternalStorageDirectory();
+            File file = new File(path, "friendsFile");
+            File friendsFile = new File(file, "friendsFile.txt");
+            //friendsFile.delete();
+            //create the file if it doesn't exist
+            if (!friendsFile.exists()) {
+                file.mkdirs();
+                friendsFile.createNewFile();
+
+            }
+            else {
+                FileInputStream fis = new FileInputStream(friendsFile);
+                ObjectInputStream oin = new ObjectInputStream(fis);
+
+                //set FriendList to contents of the file
+                arrayfriend = (ArrayList<friend>) oin.readObject();
+                adapter = new FriendListAdapter(FriendListActivity.this, R.layout.friend_list, arrayfriend);
+                lvfriend.setAdapter(adapter);
+                oin.close();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException c) {
+            c.printStackTrace();
+        }
+
+    }
+
+
+    private void saveFriends () {
+        try {
+            File file = new File(Environment.getExternalStorageDirectory(), "friendsFile");
+            File friendsFile = new File(file, "friendsFile.txt");
+            FileOutputStream fos = new FileOutputStream(friendsFile);
+            ObjectOutputStream out = new ObjectOutputStream(fos);
+
+            out.writeObject(arrayfriend);
+            out.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_list);
 
         decalare();
+
+        loadFriendlist();
+
+
         //set button go back to calendar
+
 
         calbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +138,8 @@ public class FriendListActivity extends AppCompatActivity {
 
         adapter = new FriendListAdapter(FriendListActivity.this, R.layout.friend_list, arrayfriend);
         lvfriend.setAdapter(adapter);
+
+
 
         //set the add friend btn
 
@@ -130,6 +197,7 @@ public class FriendListActivity extends AppCompatActivity {
 
                 arrayfriend.remove(i);
                 adapter.notifyDataSetChanged();
+                saveFriends();
 
                 return false;
 
@@ -139,7 +207,7 @@ public class FriendListActivity extends AppCompatActivity {
 
     private void decalare() {
         lvfriend = (ListView) findViewById(R.id.ListViewFriend);
-        arrayfriend = new ArrayList<>();
+
 
         auth = FirebaseAuth.getInstance(); //get the Authentication instance from the database
         calbtn = (Button) findViewById(R.id.calbutton);
@@ -163,6 +231,7 @@ public class FriendListActivity extends AppCompatActivity {
                            {
                                arrayfriend.add(new friend(nickName, newuserEmail));
                                adapter.notifyDataSetChanged(); //set new data after changed
+                               saveFriends();
                            }
                            else
                            {

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class ValidationHelper {
     private final String TIMEFORMAT = "(0[1-9]|1[0-2]):(([0-5])([0-9]))";
-    private final String DATEFORMAT = "(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[0-1])/[1-9][1-9][1-9][1-9]";
+    private final String DATEFORMAT = "(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1])/[0-9][0-9][0-9][0-9]";
 
     public boolean isValidTime (String time) {
         Pattern pattern = Pattern.compile(TIMEFORMAT);

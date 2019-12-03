@@ -26,6 +26,7 @@ public class Login extends AppCompatActivity {
     private Button btnlogin;
     private Button btncreate;
     private TextView offline;
+    private TextView forgot;
     private String newemail,newpass;
     private FirebaseAuth mAuth; //crate firebase database
 
@@ -39,6 +40,7 @@ public class Login extends AppCompatActivity {
         btnlogin    = (Button)      findViewById(R.id.buttonlogin);
         btncreate   = (Button)      findViewById(R.id.buttoncreateA);
         offline     = (TextView)    findViewById(R.id.offline);
+        forgot      = (TextView)    findViewById(R.id.forgotpass);
         mAuth = FirebaseAuth.getInstance(); //get instance for file resource
 
 
@@ -136,6 +138,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, ForgotPassActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void validate (String useremail, String userPassword)

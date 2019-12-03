@@ -146,14 +146,14 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success
-                            Toast toast = Toast.makeText(getApplicationContext(),"Login-in successful",Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_SHORT);
                             toast.show();
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast toast = Toast.makeText(getApplicationContext(),"Login-in fail",Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(),"Login fail",Toast.LENGTH_SHORT);
                             toast.show();
                         }
 

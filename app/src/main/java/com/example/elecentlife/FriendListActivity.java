@@ -101,13 +101,9 @@ public class FriendListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friend_list);
 
         decalare();
-
         loadFriendlist();
 
-
         //set button go back to calendar
-
-
         calbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,7 +203,6 @@ public class FriendListActivity extends AppCompatActivity {
 
     private void decalare() {
         lvfriend = (ListView) findViewById(R.id.ListViewFriend);
-
 
         auth = FirebaseAuth.getInstance(); //get the Authentication instance from the database
         calbtn = (Button) findViewById(R.id.calbutton);

@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
         forgot      = (TextView)    findViewById(R.id.forgotpass);
         mAuth = FirebaseAuth.getInstance(); //get instance for file resource
 
-
+        //login button
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

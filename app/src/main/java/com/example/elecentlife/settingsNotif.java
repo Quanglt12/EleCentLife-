@@ -15,10 +15,7 @@ public class settingsNotif extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_notif);
 
-        BuildSchedBoxes();
-        BuildMotivBoxes();
-        BuildBfastBoxes();
-        BuildAlarmBoxes();
+        BuildBoxes();
 
         Button saveChanges = (Button) findViewById(R.id.saveButton);
         saveChanges.setOnClickListener(new View.OnClickListener() {
@@ -31,8 +28,10 @@ public class settingsNotif extends AppCompatActivity {
         });
     }
 
-    private void BuildSchedBoxes() {
+    private void BuildBoxes() {
         GlobalVar globalVariables = new GlobalVar();
+
+        //build schedule boxes
         String schedTime = globalVariables.getSchedTime();
         EditText schedTimeTB1 = (EditText) findViewById(R.id.schedTimeTB1);
         EditText schedTimeTB2 = (EditText) findViewById(R.id.schedTimeTB2);
@@ -49,16 +48,14 @@ public class settingsNotif extends AppCompatActivity {
             schedTimeAmPm.setSelection(0);
         else if (tempStr == "pm")
             schedTimeAmPm.setSelection(1);
-    }
 
-    private void BuildMotivBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        //build quote boxes
         String motivTime = globalVariables.getQuoteTime();
         EditText motivTimeTB1 = (EditText) findViewById(R.id.motivTimeTB1);
         EditText motivTimeTB2 = (EditText) findViewById(R.id.motivTimeTB2);
         Spinner motivTimeAmPm = (Spinner) findViewById(R.id.motivTimeSP);
 
-        String tempStr = motivTime.substring(0, 2);
+        tempStr = motivTime.substring(0, 2);
         motivTimeTB1.setText(tempStr);
 
         tempStr = motivTime.substring(3, 5);
@@ -69,16 +66,14 @@ public class settingsNotif extends AppCompatActivity {
             motivTimeAmPm.setSelection(0);
         else if (tempStr == "pm")
             motivTimeAmPm.setSelection(1);
-    }
 
-    private void BuildBfastBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        //build breakfast boxes
         String bfastTime = globalVariables.getBreakfastTime();
         EditText bfastTimeTB1 = (EditText) findViewById(R.id.bfastTimeTB1);
         EditText bfastTimeTB2 = (EditText) findViewById(R.id.bfastTimeTB2);
         Spinner bfastTimeAmPm = (Spinner) findViewById(R.id.bfastTimeSP);
 
-        String tempStr = bfastTime.substring(0, 2);
+        tempStr = bfastTime.substring(0, 2);
         bfastTimeTB1.setText(tempStr);
 
         tempStr = bfastTime.substring(3, 5);
@@ -89,16 +84,14 @@ public class settingsNotif extends AppCompatActivity {
             bfastTimeAmPm.setSelection(0);
         else if (tempStr == "pm")
             bfastTimeAmPm.setSelection(1);
-    }
 
-    private void BuildAlarmBoxes() {
-        GlobalVar globalVariables = new GlobalVar();
+        //build alarm boxes
         String alarmTime = globalVariables.getAlarmTime();
         EditText alarmTimeTB1 = (EditText) findViewById(R.id.alarmTimeTB1);
         EditText alarmTimeTB2 = (EditText) findViewById(R.id.alarmTimeTB2);
         Spinner alarmTimeAmPm = (Spinner) findViewById(R.id.alarmTimeSP);
 
-        String tempStr = alarmTime.substring(0, 2);
+        tempStr = alarmTime.substring(0, 2);
         alarmTimeTB1.setText(tempStr);
 
         tempStr = alarmTime.substring(3, 5);

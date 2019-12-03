@@ -60,7 +60,7 @@ public class settingsColors extends AppCompatActivity {
         colorArr[3] = MTColor.getSelectedItem().toString();
         colorArr[4] = OTColor.getSelectedItem().toString();
 
-        globalVariables.setColor((colorArr));
+        globalVariables.setColor(colorArr);
         globalVariables.saveGlobalVars();
     }
 

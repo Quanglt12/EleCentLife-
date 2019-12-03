@@ -18,13 +18,15 @@ public class Events {
     //constructor used to load events from the file saved on the device
     public Events(Context context) {
         try {
-            File file = new File(context.getExternalFilesDir(null), "eventsFile");
-
+            File path = Environment.getExternalStorageDirectory();
+            File file = new File(path, "eventsFile");
+            File eventsFile = new File(file, "eventsFile.txt");
             //create the file if it doesn't exist
-            if (!file.exists())
-                file.createNewFile();
+            if (!eventsFile.exists()) {
+                file.mkdirs();
+                eventsFile.createNewFile();
+            }
             else {
-                File eventsFile = new File(file, "eventsFile");
                 FileInputStream fis = new FileInputStream(eventsFile);
                 ObjectInputStream oin = new ObjectInputStream(fis);
 
@@ -43,8 +45,8 @@ public class Events {
 
     private void saveEvents () {
         try {
-            File file = Environment.getExternalStorageDirectory();
-            File eventsFile = new File(file, "eventsFile");
+            File file = new File(Environment.getExternalStorageDirectory(), "eventsFile");
+            File eventsFile = new File(file, "eventsFile.txt");
             FileOutputStream fos = new FileOutputStream(eventsFile);
             ObjectOutputStream out = new ObjectOutputStream(fos);
             out.writeObject(EventList);
@@ -55,8 +57,9 @@ public class Events {
         }
     }
 
-    public List<String> getEventList() {
-        return EventList;
+    //run in a loop to get all events
+    public String getEventList(int index) {
+        return EventList.get(index);
     }
 
     public void addEvent(String newEvent) {
@@ -70,6 +73,7 @@ public class Events {
 
             if (tempStr == event) {
                 EventList.remove(index);
+                this.saveEvents();
                 break;
             }
         }

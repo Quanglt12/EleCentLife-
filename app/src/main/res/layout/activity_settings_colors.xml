@@ -6,14 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".settingsColors">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="196dp"
-        android:text="Casual Hangout Default Color:"
-        android:textSize="24sp"
+    <Spinner
+        android:id="@+id/OTColor"
+        android:layout_width="205dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="420dp"
+        android:entries="@array/SetColors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/MTColor"
+        android:layout_width="205dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="328dp"
+        android:entries="@array/SetColors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,9 +31,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="296dp"
         android:text="Meeting Default Color:"
         android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Casual Hangout Default Color:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DLColor" />
+
+    <Spinner
+        android:id="@+id/CHColor"
+        android:layout_width="205dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="240dp"
+        android:entries="@array/SetColors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="274dp"
+        android:layout_marginTop="388dp"
         android:text="Other Default Color:"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,11 +74,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="157dp"
+        android:layout_marginTop="116dp"
         android:text="Deadline Default Color:"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/DLColor"
+        android:layout_width="205dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:entries="@array/SetColors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView"
@@ -58,6 +97,25 @@
         android:layout_marginTop="26dp"
         android:text="Work/School Default Color:"
         android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/WSColor"
+        android:layout_width="205dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="21dp"
+        android:entries="@array/SetColors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="247dp"
+        android:layout_marginTop="485dp"
+        android:text="Save Changes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

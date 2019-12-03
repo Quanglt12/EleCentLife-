@@ -26,12 +26,9 @@ public class Login extends AppCompatActivity {
     private Button btnlogin;
     private Button btncreate;
     private TextView offline;
+    private TextView forgot;
     private String newemail,newpass;
     private FirebaseAuth mAuth; //crate firebase database
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +40,10 @@ public class Login extends AppCompatActivity {
         btnlogin    = (Button)      findViewById(R.id.buttonlogin);
         btncreate   = (Button)      findViewById(R.id.buttoncreateA);
         offline     = (TextView)    findViewById(R.id.offline);
+        forgot      = (TextView)    findViewById(R.id.forgotpass);
         mAuth = FirebaseAuth.getInstance(); //get instance for file resource
 
-
+        //login button
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,6 +138,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, ForgotPassActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void validate (String useremail, String userPassword)
@@ -150,14 +155,14 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success
-                            Toast toast = Toast.makeText(getApplicationContext(),"Login-in successful",Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_SHORT);
                             toast.show();
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast toast = Toast.makeText(getApplicationContext(),"Login-in fail",Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(),"Login fail",Toast.LENGTH_SHORT);
                             toast.show();
                         }
 

@@ -6,6 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
+    <Button
+        android:id="@+id/friendsbutton"
+        android:layout_width="104dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="483dp"
+        android:layout_toStartOf="@+id/newEventButton"
+        android:text="FRIENDS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/settingsbutton"
+        android:layout_width="112dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="483dp"
+        android:layout_toStartOf="@+id/settingsButton"
+        android:layout_toEndOf="@+id/button4"
+        android:background="#AD9292"
+        android:text="SETTING"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/newEventButton2"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="483dp"
+        android:text="+"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/calbutton2"
+        android:layout_width="103dp"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="483dp"
+        android:text="Cal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewLogOut"
         android:layout_width="382dp"

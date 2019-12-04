@@ -8,6 +8,16 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-39dp">
 
+    <Button
+        android:id="@+id/send2friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="524dp"
+        android:text="Sent to Friends"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/remindMinET"
         android:layout_width="94dp"
@@ -42,7 +52,7 @@
 
     <TextView
         android:id="@+id/remindTV"
-        android:layout_width="411dp"
+        android:layout_width="387dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="367dp"
@@ -246,8 +256,8 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="261dp"
-        android:layout_marginTop="526dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="524dp"
         android:text="Save Event"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -14,6 +14,15 @@ public class DailyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily);
 
+        Button weeklybtn= (Button) findViewById(R.id.weeklybutton);
+        weeklybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), Weekly.class);
+                startActivity(startIntent);
+            }
+        });
+
         Button monthbtn = (Button) findViewById(R.id.monthlybutton);
         monthbtn.setOnClickListener(new View.OnClickListener() {
             @Override

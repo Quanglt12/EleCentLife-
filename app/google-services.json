@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "590388549500-9prdf15gsffkkpi36i3cg6bm56mvg30b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.elecentlife",
+            "certificate_hash": "a96cbfd9beaac8565bdc694eabf5a667218cc9a4"
+          }
+        },
+        {
           "client_id": "590388549500-0atnqttf6pppv3f9up3qicrb0vinggij.apps.googleusercontent.com",
           "client_type": 3
         }

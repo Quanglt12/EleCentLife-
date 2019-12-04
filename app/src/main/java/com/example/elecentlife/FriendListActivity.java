@@ -63,8 +63,6 @@ public class FriendListActivity extends AppCompatActivity {
 
                 //set FriendList to contents of the file
                 arrayfriend = (ArrayList<friend>) oin.readObject();
-                adapter = new FriendListAdapter(FriendListActivity.this, R.layout.friend_list, arrayfriend);
-                lvfriend.setAdapter(adapter);
                 oin.close();
             }
         }
@@ -76,6 +74,8 @@ public class FriendListActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
     private void saveFriends () {

@@ -186,26 +186,51 @@ public class settingsNotif extends AppCompatActivity implements TimePickerDialog
 
     private void SaveNewSettings() {
         GlobalVar globalVariables = new GlobalVar();
+        ValidationHelper validate = new ValidationHelper();
 
         EditText TB1 = (EditText) findViewById(R.id.schedTimeTB1);
         EditText TB2 = (EditText) findViewById(R.id.schedTimeTB2);
         Spinner AmPm = (Spinner) findViewById(R.id.schedTimeSP);
-        globalVariables.setSchedTime(ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString()));
+        String tempstr = ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString());
+        if (validate.isValidTime(tempstr))
+            globalVariables.setSchedTime(tempstr);
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(),"Schedule time invalid",Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
         TB1 = (EditText) findViewById(R.id.motivTimeTB1);
         TB2 = (EditText) findViewById(R.id.motivTimeTB2);
         AmPm = (Spinner) findViewById(R.id.motivTimeSP);
-        globalVariables.setQuoteTime(ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString()));
+        tempstr = ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString());
+        if (validate.isValidTime(tempstr))
+            globalVariables.setQuoteTime(tempstr);
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(),"Quote time invalid",Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
         TB1 = (EditText) findViewById(R.id.bfastTimeTB1);
         TB2 = (EditText) findViewById(R.id.bfastTimeTB2);
         AmPm = (Spinner) findViewById(R.id.bfastTimeSP);
-        globalVariables.setBreakfastTime(ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString()));
+        tempstr = ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString());
+        if (validate.isValidTime(tempstr))
+            globalVariables.setBreakfastTime(tempstr);
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(),"Breakfast time invalid",Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
         TB1 = (EditText) findViewById(R.id.alarmTimeTB1);
         TB2 = (EditText) findViewById(R.id.alarmTimeTB2);
         AmPm = (Spinner) findViewById(R.id.alarmTimeSP);
-        globalVariables.setAlarmTime(ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString()));
+        tempstr = ConcatStrings(TB1.getText().toString(), TB2.getText().toString(), AmPm.getSelectedItem().toString());
+        if (validate.isValidTime(tempstr))
+            globalVariables.setAlarmTime(tempstr);
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(),"Alarm time invalid",Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
         globalVariables.saveGlobalVars();
 

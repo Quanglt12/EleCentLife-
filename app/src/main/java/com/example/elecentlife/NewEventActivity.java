@@ -2,8 +2,6 @@ package com.example.elecentlife;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,69 +17,6 @@ public class NewEventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_event);
-
-        Button sendtofriends = (Button) findViewById(R.id.send2friend);
-        sendtofriends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkDateTime()) {
-                    final groupEvent group = new groupEvent();
-
-                    //create dialog for group event
-                    AlertDialog.Builder builder = new AlertDialog.Builder(NewEventActivity.this);
-                    builder.setTitle("Choose friends");
-
-                    String[] friendsarray = group.getFriendArray();
-                    builder.setMultiChoiceItems(friendsarray, group.getChecks(), new DialogInterface.OnMultiChoiceClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                        }
-                    });
-
-                    //sets cancel and ok buttons
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) { //when the user clicks ok, it sends the event and saves it for the user
-                            group.sendEvent(getSingleString());
-
-                            Events EventClass = new Events(getApplicationContext());
-                            EventClass.addEvent(getSingleString());
-
-                            Toast toast = Toast.makeText(getApplicationContext(), "Event sent", Toast.LENGTH_SHORT);
-                            toast.show();
-
-                            toast = Toast.makeText(getApplicationContext(),"New event saved.",Toast.LENGTH_SHORT);
-                            toast.show();
-
-                            //return to main activity
-                            Intent intent = new Intent(NewEventActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                    builder.setNegativeButton("Cancel", null);
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
-
-                else {
-                    if (checkSDate()) {
-                        Toast toast = Toast.makeText(getApplicationContext(),"Event date incorrect (MM/DD/YYYY)",Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                    if (checkSTime()) {
-                        Toast toast = Toast.makeText(getApplicationContext(),"Event start time incorrect (HH:MM)",Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                    if (checkETime()) {
-                        Toast toast = Toast.makeText(getApplicationContext(),"Event end time incorrect (HH:MM)",Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-
-                }
-            }
-        });
 
         Button saveChanges = (Button) findViewById(R.id.saveButton);
         saveChanges.setOnClickListener(new View.OnClickListener() {

@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Weekly" />
+        <activity android:name=".WeeklyActivity" />
         <activity android:name=".FriendListActivity" />
         <activity android:name=".DailyActivity" />
         <activity android:name=".MainActivity" />

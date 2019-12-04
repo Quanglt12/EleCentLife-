@@ -53,7 +53,7 @@ public class Notification extends Application {
             NotificationChannel alarm = new NotificationChannel(
                     NOTIF_5_ID,
                     "Alarm",
-                    NotificationManager.IMPORTANCE_MAX
+                    NotificationManager.IMPORTANCE_HIGH
             );
             alarm.setDescription("Alarm");
 

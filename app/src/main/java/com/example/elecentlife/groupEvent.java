@@ -18,7 +18,7 @@ public class groupEvent {
     private ArrayList<friend> arrayFriends;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     public static boolean value = false;
-    private boolean[] checks = {false, false, false, false, false};
+    private boolean[] checks;
     private int index;
 
     private class uploadClass {
@@ -48,6 +48,13 @@ public class groupEvent {
                 //set FriendList to contents of the file
                 arrayFriends = (ArrayList<friend>) oin.readObject();
                 oin.close();
+            }
+
+            checks = new boolean[arrayFriends.size()];
+
+            //initialize boolean array to all false
+            for (int i = 0; i < arrayFriends.size(); i++) {
+                checks[i] = false;
             }
         }
         catch (IOException e) {

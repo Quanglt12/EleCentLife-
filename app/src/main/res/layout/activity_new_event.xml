@@ -249,6 +249,7 @@
         android:layout_marginStart="261dp"
         android:layout_marginTop="526dp"
         android:text="Save Event"
+        android:onClick="sendOnNotif1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

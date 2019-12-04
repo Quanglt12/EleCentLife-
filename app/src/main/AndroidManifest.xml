@@ -17,6 +17,12 @@
         <activity android:name=".settingsColors" />
         <activity android:name=".settingsNotif" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".WeeklyActivity" />
+        <activity android:name=".FriendListActivity" />
+        <activity android:name=".DailyActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".TimePickerFragment" />
+        <activity android:name=".Notification" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Weekly" />
-        <activity android:name=".FriendListActivity" />
-        <activity android:name=".DailyActivity" />
-        <activity android:name=".MainActivity" />
+        <receiver android:name=".AlertReceiver"/>
     </application>
 
 </manifest>

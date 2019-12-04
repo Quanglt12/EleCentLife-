@@ -1,21 +1,74 @@
 package com.example.elecentlife;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class settingsNotif extends AppCompatActivity {
+import java.util.Calendar;
+
+public class settingsNotif extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener  {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_notif);
 
         BuildBoxes();
+
+        //Create clocks
+
+        Button sched_ButtonTimePicker = findViewById(R.id.Sched_TimePicker);
+        sched_ButtonTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "clock");
+            }
+        });
+
+        Button quote_ButtonTimePicker = findViewById(R.id.Quote_TimePicker);
+        quote_ButtonTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "clock");
+            }
+        });
+
+        Button bfast_ButtonTimePicker = findViewById(R.id.Bfast_TimePicker);
+        bfast_ButtonTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "clock");
+            }
+        });
+
+        Button alarm_ButtonTimePicker = findViewById(R.id.Alarm_TimePicker);
+        alarm_ButtonTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "clock");
+            }
+        });
+
+
 
         Button saveChanges = (Button) findViewById(R.id.saveButton);
         saveChanges.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +156,33 @@ public class settingsNotif extends AppCompatActivity {
         else if (tempStr == "pm")
             alarmTimeAmPm.setSelection(1);
     }
+
+    //set to 24hour standard
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 0);
+        startAlarm(c);
+    }
+    private void startAlarm(Calendar c) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+
+        if (c.before(Calendar.getInstance())) {
+            c.add(Calendar.DATE, 1);
+        }
+
+        assert alarmManager != null;
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+    }
+
+
+
+
 
     private void SaveNewSettings() {
         GlobalVar globalVariables = new GlobalVar();

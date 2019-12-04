@@ -1,6 +1,8 @@
 package com.example.elecentlife;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +13,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class NewEventActivity extends AppCompatActivity {
-
+    /*
+    private NotificationManagerCompat notificationManager;
+    //private EditText editTextTitle;
+    //private EditText editTextMessage;
+    }
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,5 +84,29 @@ public class NewEventActivity extends AppCompatActivity {
                 }
             }
         });
+        /*//activate notification
+
+        notificationManager = NotificationManagerCompat.from(this);
+
+        //editTextTitle = findViewById(R.id.eventTypeSP);
+        //editTextMessage = findViewById(R.id.message)
+
+         */
     }
+    /* public void sendOnNotif1(View v){
+        //String title = editTextTitle.getText().toString();
+        //String message = editTextMessage..getText().toString();
+        android.app.Notification notif = new NotificationCompat.Builder(this, Notification.NOTIF_1_ID)
+                .setSmallIcon(R.drawable.ic_work)
+                .setContentTitle("work")
+                .setContentText("You have work coming up")
+                .setVibrate(new long [] {1000, 1000, 1000, 1000, 1000})
+                .setCategory(NotificationCompat.CATEGORY_REMINDER)
+                .build();
+
+        notificationManager.notify(1, notif);
+
+
+    }
+     */
 }
